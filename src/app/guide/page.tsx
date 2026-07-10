@@ -48,12 +48,12 @@ export default function GuidePage() {
         How to run a systematic review in EvidenceFlow
       </h1>
       <p className="mt-2 text-slate-600">
-        EvidenceFlow follows <strong>watch it → do it → teach it</strong>. Use
-        specialist tools for bulk screening and statistics; keep decisions, counts,
-        reflections, and team notes here so learning and the review stay aligned.
+        EvidenceFlow follows <strong>watch it → do it</strong>. Use specialist
+        tools for bulk screening and statistics; keep decisions, counts, and team
+        notes here so the review stays organised and exportable.
       </p>
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-3">
+      <div className="mt-6 grid gap-3 sm:grid-cols-2">
         <div className="rounded-xl border border-amber-100 bg-amber-50 px-4 py-3 text-sm text-amber-950">
           <strong>1. Watch</strong>
           <p className="mt-1 text-xs">
@@ -63,20 +63,15 @@ export default function GuidePage() {
         <div className="rounded-xl border border-teal-100 bg-teal-50 px-4 py-3 text-sm text-teal-950">
           <strong>2. Do</strong>
           <p className="mt-1 text-xs">
-            Your project fields, checklists, tools, dual-review notes.
-          </p>
-        </div>
-        <div className="rounded-xl border border-violet-100 bg-violet-50 px-4 py-3 text-sm text-violet-950">
-          <strong>3. Teach</strong>
-          <p className="mt-1 text-xs">
-            Explain-back prompts → learning pack for peers/supervisors.
+            Your project fields, checklists, tools, dual-review notes, Word export.
           </p>
         </div>
       </div>
 
       <div className="mt-4 rounded-xl border border-teal-100 bg-teal-50/50 px-4 py-3 text-sm text-teal-950">
-        <strong>Team path:</strong> Sign in → Create team project → Share invite code →
-        Work stages 1→11 (Watch/Do/Teach each) → readiness + teach-back % → Export.
+        <strong>Team path:</strong> Sign in → Create team project → Share invite
+        code → Work stages 1→11 (Watch then Do) → readiness checklist → Export
+        Word.
       </div>
 
       <div className="mt-10 space-y-8">

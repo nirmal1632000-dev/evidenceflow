@@ -8,9 +8,10 @@ EvidenceFlow is a guided web app for:
 
 - **Design hub** — produce evidence (case reports live; more designs soon) or synthesise (SR/MA)  
 - **Design chooser** + **appraisal red flags** by study type  
-- **Case report / series track** — 9 CARE-inspired stages with Watch · Do · Teach  
+- **Design tracks** — case report, cross-sectional, cohort, quasi-experimental, RCT  
 - **SR/MA workspace** — full 11-stage pipeline (PICO → PRISMA)  
-- **Foundations** (history & philosophy) + **software modules** + calculators
+- **Watch · Do** on every stage — model example, then write your own  
+- **Word export** drafts · foundations · software modules · calculators
 
 Educational aid only — not a substitute for methods training, supervision, or ethics review.
 
@@ -54,8 +55,7 @@ Question → Eligibility → Protocol → Search → Screening → Extraction �
 On each stage:
 
 1. **Watch** — model / annotated example  
-2. **Do** — your project fields & tools  
-3. **Teach** — reflect + explain-back (exportable learning pack)
+2. **Do** — your project fields, tools, and exportable Word drafts
 
 ### Software modules
 Not a bare list: each tool has pros/cons, when/how to use, pitfalls, and references  

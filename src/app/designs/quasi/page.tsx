@@ -39,8 +39,7 @@ export default function QuasiIndexPage() {
       </h1>
       <p className="mt-2 text-sm text-slate-600">
         Evaluate programs and policies without full randomisation: ITS, DiD,
-        controlled before–after, and validity threats. 9 stages · Watch · Do ·
-        Teach.
+        controlled before–after, and validity threats. 9 stages · Watch · Do.
       </p>
 
       <div className="mt-4 flex flex-col gap-2 sm:flex-row">

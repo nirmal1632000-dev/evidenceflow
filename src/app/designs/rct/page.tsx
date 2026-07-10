@@ -39,8 +39,8 @@ export default function RctIndexPage() {
       </h1>
       <p className="mt-2 text-sm text-slate-600">
         Plan an RCT with SPIRIT/CONSORT-inspired stages: PICOT, randomisation,
-        concealment, outcomes, sample size, registration. 9 stages · Watch · Do ·
-        Teach · educational only (not a running CTMS).
+        concealment, outcomes, sample size, registration. 9 stages · Watch · Do
+        · educational only (not a running CTMS).
       </p>
 
       <div className="mt-4 flex flex-col gap-2 sm:flex-row">

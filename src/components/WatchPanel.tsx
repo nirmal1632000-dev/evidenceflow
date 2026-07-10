@@ -89,7 +89,7 @@ export function WatchPanel({ stageId }: { stageId: StageId }) {
 
       <p className="text-center text-xs text-slate-500">
         When you understand the model → switch to <strong>Do</strong> and write
-        your own. Then <strong>Teach</strong> to lock it in.
+        your own.
       </p>
     </div>
   );

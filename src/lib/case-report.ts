@@ -707,15 +707,6 @@ export function buildCaseExportMarkdown(project: CaseProject): string {
     for (const f of def.fields) {
       lines.push(`### ${f.label}`, "", String(data[f.key] ?? "—"), "");
     }
-    if (data._reflectDecision || data._teachExplain) {
-      lines.push("### Reflections", "");
-      if (data._reflectDecision)
-        lines.push(`**Decision:** ${data._reflectDecision}`, "");
-      if (data._reflectUncertain)
-        lines.push(`**Uncertainty:** ${data._reflectUncertain}`, "");
-      if (data._teachExplain)
-        lines.push(`**Teach-back:** ${data._teachExplain}`, "");
-    }
   }
   const checks = dataCareChecks(project);
   lines.push("## CARE-inspired checklist", "");

@@ -27,10 +27,6 @@ import {
 import { parseStudies, studiesToCsv, studiesToMarkdownTable } from "@/lib/studies";
 import { createLocalShare } from "@/lib/share";
 import { openMaCalculatorFromStudies } from "@/lib/study-to-ma";
-import {
-  buildLearningExportMarkdown,
-  projectTeachScore,
-} from "@/lib/pedagogy";
 import { Pipeline, ProgressBar } from "./Pipeline";
 import { ReadinessPanel } from "./ReadinessPanel";
 import { PrismaFlow } from "./PrismaFlow";
@@ -118,7 +114,6 @@ export function ProjectHome({ projectId }: { projectId: string }) {
   }
 
   const progress = computeProgress(project);
-  const teachScore = projectTeachScore(project);
   const qs = `?mode=${mode}`;
   const base = `/workspace/projects/${projectId}`;
 
@@ -298,28 +293,11 @@ export function ProjectHome({ projectId }: { projectId: string }) {
         </div>
       )}
 
-      <div className="mt-6 grid max-w-xl gap-4 sm:grid-cols-2">
-        <div>
-          <ProgressBar percent={progress.percent} />
-          <p className="mt-1 text-xs text-slate-500">
-            Do · {progress.completed} of {progress.total} stages complete
-          </p>
-        </div>
-        <div>
-          <div className="mb-1 flex justify-between text-xs text-slate-500">
-            <span>Teach-back</span>
-            <span>{teachScore.percent}%</span>
-          </div>
-          <div className="h-2 overflow-hidden rounded-full bg-violet-100">
-            <div
-              className="h-full rounded-full bg-violet-600 transition-all"
-              style={{ width: `${teachScore.percent}%` }}
-            />
-          </div>
-          <p className="mt-1 text-xs text-slate-500">
-            {teachScore.filled} of {teachScore.total} reflect/teach prompts
-          </p>
-        </div>
+      <div className="mt-6 max-w-xl">
+        <ProgressBar percent={progress.percent} />
+        <p className="mt-1 text-xs text-slate-500">
+          {progress.completed} of {progress.total} stages complete
+        </p>
       </div>
 
       <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
@@ -327,11 +305,9 @@ export function ProjectHome({ projectId }: { projectId: string }) {
         <Link href="/example/tour" className="text-amber-800 underline">
           Watch tour
         </Link>
-        {" · "}
-        stages use <span className="font-medium text-teal-800">Do</span> for
-        fields{" · "}
-        <span className="font-medium text-violet-800">Teach</span> tab to
-        explain-back
+        {" · then "}
+        <span className="font-medium text-teal-800">Do</span> — fill fields and
+        checklists on each stage
       </div>
 
       <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-slate-50 p-3">
@@ -426,13 +402,6 @@ export function ProjectHome({ projectId }: { projectId: string }) {
               suffix: "full",
               markdown: () => buildFullExportMarkdown(project),
               variant: "primary",
-            },
-            {
-              id: "learning",
-              label: "Learning pack",
-              suffix: "learning-pack",
-              markdown: () => buildLearningExportMarkdown(project),
-              variant: "accent",
             },
           ]}
         />

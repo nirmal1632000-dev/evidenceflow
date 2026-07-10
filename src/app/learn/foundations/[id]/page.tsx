@@ -123,7 +123,7 @@ export default async function FoundationModulePage({
 
         <section className="rounded-xl border border-amber-100 bg-amber-50/50 p-5">
           <h2 className="text-lg font-semibold text-amber-950">
-            Practice tasks (Do / Teach)
+            Practice tasks
           </h2>
           <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-amber-950/90">
             {mod.practiceTasks.map((t) => (

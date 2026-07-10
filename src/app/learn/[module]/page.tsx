@@ -6,7 +6,6 @@ import {
   getLearnModule,
   getModuleReferences,
 } from "@/lib/learn-modules";
-import { getStagePedagogy } from "@/lib/pedagogy";
 
 export default async function LearnModulePage({
   params,
@@ -19,7 +18,6 @@ export default async function LearnModulePage({
   const stage = getStage(stageId);
   const extended = getLearnModule(stageId);
   const refs = getModuleReferences(stageId);
-  const ped = getStagePedagogy(stageId);
   const prev = getPrevStage(stage.id);
   const next = getNextStage(stage.id);
 
@@ -32,7 +30,7 @@ export default async function LearnModulePage({
         ← All modules
       </Link>
       <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-teal-700 dark:text-teal-300">
-        Module {stage.number} · Watch · Do · Teach curriculum
+        Module {stage.number} · Watch · Do curriculum
       </p>
       <h1 className="mt-1 text-3xl font-semibold text-slate-900 dark:text-slate-50">
         {stage.title}
@@ -138,9 +136,6 @@ export default async function LearnModulePage({
               <li key={t}>{t}</li>
             ))}
           </ol>
-          <p className="mt-3 text-xs text-amber-900/80">
-            Teach-back prompt: {ped.teach.explain}
-          </p>
         </section>
 
         <section>

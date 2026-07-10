@@ -12,9 +12,9 @@ export default function HomePage() {
             Learn clinical evidence methods by doing them
           </h1>
           <p className="mt-4 max-w-2xl text-base text-slate-600 sm:text-lg">
-            EvidenceFlow guides you with <strong>Watch · Do · Teach</strong> —
-            from case reports to systematic reviews. Start with a design, or jump
-            into the full SR/MA workspace.
+            EvidenceFlow guides you with <strong>Watch · Do</strong> — see a
+            worked model, then write your own fields. From case reports to
+            systematic reviews.
           </p>
           <div className="mt-6 grid gap-2 sm:flex sm:flex-wrap sm:gap-3">
             <Link
@@ -119,24 +119,19 @@ export default function HomePage() {
       <section className="border-t border-slate-200 bg-white">
         <div className="mx-auto max-w-6xl px-3 py-10 sm:px-6">
           <h2 className="text-xl font-semibold text-slate-900">
-            Watch · Do · Teach
+            Watch · Do
           </h2>
-          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {[
               {
                 t: "Watch",
-                b: "Example + concepts before you write",
+                b: "Worked example and key concepts before you write",
                 c: "border-amber-200 bg-amber-50",
               },
               {
                 t: "Do",
-                b: "Real fields, checklists, exportable drafts",
+                b: "Real fields, checklists, and Word export drafts",
                 c: "border-teal-200 bg-teal-50",
-              },
-              {
-                t: "Teach",
-                b: "Explain-back so learning sticks",
-                c: "border-violet-200 bg-violet-50",
               },
             ].map((x) => (
               <div

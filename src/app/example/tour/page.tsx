@@ -49,7 +49,7 @@ function TourInner() {
         <Link href="/workspace" className="text-teal-700 underline">
           do your own project
         </Link>
-        , then teach it back on each stage.
+        .
       </p>
 
       {/* Progress */}
@@ -167,8 +167,7 @@ function TourInner() {
       <p className="mt-6 text-center text-sm text-slate-500">
         Loop:{" "}
         <strong className="text-amber-800">Watch</strong> (this tour) →{" "}
-        <strong className="text-teal-800">Do</strong> (your project) →{" "}
-        <strong className="text-violet-800">Teach</strong> (stage teach tab)
+        <strong className="text-teal-800">Do</strong> (your project)
       </p>
     </div>
   );

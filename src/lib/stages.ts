@@ -1189,23 +1189,6 @@ export function buildFullExportMarkdown(project: Project): string {
       const val = data[field.key];
       parts.push(`**${field.label}**`, "", String(val ?? "—"), "");
     }
-    // Teach / reflect answers
-    if (
-      data._reflectDecision ||
-      data._reflectUncertain ||
-      data._teachExplain ||
-      data._teachPeer
-    ) {
-      parts.push("**Watch · Do · Teach reflections**", "");
-      if (data._reflectDecision)
-        parts.push("*Decision:*", String(data._reflectDecision), "");
-      if (data._reflectUncertain)
-        parts.push("*Uncertainty:*", String(data._reflectUncertain), "");
-      if (data._teachExplain)
-        parts.push("*Teach-back:*", String(data._teachExplain), "");
-      if (data._teachPeer)
-        parts.push("*Peer questions:*", String(data._teachPeer), "");
-    }
   }
   return parts.join("\n");
 }

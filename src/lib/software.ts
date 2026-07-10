@@ -252,7 +252,7 @@ export const SOFTWARE_CATALOG: SoftwareItem[] = [
       "Letting Covidence criteria drift from the registered protocol.",
     ],
     withEvidenceFlow:
-      "Use Covidence for bulk process; use EvidenceFlow for learning, protocol narrative, readiness, teach-back, and manuscript-oriented exports.",
+      "Use Covidence for bulk process; use EvidenceFlow for learning, protocol narrative, readiness, and manuscript-oriented exports.",
     refIds: ["prisma2020", "cochrane", "mep"],
   },
   {

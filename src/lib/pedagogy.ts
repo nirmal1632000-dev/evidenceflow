@@ -3,7 +3,7 @@ import { STAGE_ORDER, getStage } from "./stages";
 import { getExampleProject } from "./example-project";
 import { computeReadiness } from "./readiness";
 
-export type WdtMode = "watch" | "do" | "teach";
+export type WdtMode = "watch" | "do";
 
 export interface WatchFieldHighlight {
   fieldKey: string;

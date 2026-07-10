@@ -40,7 +40,7 @@ export default function LearnPage() {
         <Link href="/example/tour" className="underline">
           Watch tour
         </Link>{" "}
-        → create a project → stages 1–11 (Watch · Do · Teach) →{" "}
+        → create a project → stages 1–11 (Watch · Do) →{" "}
         <Link href="/tools" className="underline">
           software modules
         </Link>

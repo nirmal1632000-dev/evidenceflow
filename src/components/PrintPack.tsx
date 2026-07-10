@@ -10,15 +10,10 @@ import {
 import { parseStudies, studiesToMarkdownTable } from "@/lib/studies";
 import { computeReadiness } from "@/lib/readiness";
 import { PRISMA_ITEMS } from "@/lib/prisma-items";
-import {
-  buildLearningExportMarkdown,
-  projectTeachScore,
-} from "@/lib/pedagogy";
 import { ExportMenu } from "./ExportMenu";
 
 export function PrintPack({ project }: { project: Project }) {
   const readiness = computeReadiness(project);
-  const teachScore = projectTeachScore(project);
   const studies = parseStudies(project.stages.extraction?.data?._studies);
   const prismaRaw = project.stages.reporting?.data?._prismaChecks;
   const prismaChecked = Array.isArray(prismaRaw)
@@ -27,11 +22,6 @@ export function PrintPack({ project }: { project: Project }) {
 
   const sections = useMemo(
     () => [
-      {
-        id: "learning",
-        title: "Learning pack (Watch · Do · Teach)",
-        body: buildLearningExportMarkdown(project),
-      },
       { id: "protocol", title: "Protocol draft", body: buildProtocolMarkdown(project) },
       { id: "methods", title: "Methods draft", body: buildMethodsMarkdown(project) },
       {
@@ -73,8 +63,8 @@ export function PrintPack({ project }: { project: Project }) {
           </p>
           <h1 className="text-2xl font-semibold text-slate-900">{project.title}</h1>
           <p className="mt-1 text-sm text-slate-600">
-            Readiness {readiness.score}% · Teach-back {teachScore.percent}% ·
-            Generated {new Date().toLocaleString()} · Educational draft only
+            Readiness {readiness.score}% · Generated{" "}
+            {new Date().toLocaleString()} · Educational draft only
           </p>
         </header>
 
@@ -125,13 +115,6 @@ export function PrintPack({ project }: { project: Project }) {
                 suffix: "full",
                 markdown: () => buildFullExportMarkdown(project),
                 variant: "primary",
-              },
-              {
-                id: "learning",
-                label: "Learning pack",
-                suffix: "learning-pack",
-                markdown: () => buildLearningExportMarkdown(project),
-                variant: "accent",
               },
               {
                 id: "protocol",

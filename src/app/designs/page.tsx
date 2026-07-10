@@ -12,7 +12,7 @@ export default function DesignsHubPage() {
       </h1>
       <p className="mt-3 max-w-2xl text-sm text-slate-600 sm:text-base">
         Produce primary evidence (case reports → trials) or synthesise studies
-        (systematic reviews). Same principle: <strong>Watch · Do · Teach</strong>.
+        (systematic reviews). Same principle: <strong>Watch · Do</strong>.
       </p>
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2">

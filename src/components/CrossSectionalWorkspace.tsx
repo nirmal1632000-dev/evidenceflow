@@ -19,7 +19,7 @@ import {
 } from "@/lib/cross-sectional";
 import { ExportMenu } from "./ExportMenu";
 
-type Wdt = "watch" | "do" | "teach";
+type Wdt = "watch" | "do";
 
 export function CrossSectionalWorkspace({
   projectId,
@@ -33,11 +33,6 @@ export function CrossSectionalWorkspace({
   const stage = getXsStage(stageId);
   const [project, setProject] = useState<XsProject | null>(null);
   const [form, setForm] = useState<Record<string, string>>({});
-  const [teach, setTeach] = useState({
-    decision: "",
-    uncertain: "",
-    explain: "",
-  });
   const [checks, setChecks] = useState<string[]>([]);
   const [wdt, setWdt] = useState<Wdt>(readOnly ? "watch" : "do");
   const [saving, setSaving] = useState(false);
@@ -68,11 +63,6 @@ export function CrossSectionalWorkspace({
       next[f.key] = data[f.key] != null ? String(data[f.key]) : "";
     }
     setForm(next);
-    setTeach({
-      decision: String(data._reflectDecision || ""),
-      uncertain: String(data._reflectUncertain || ""),
-      explain: String(data._teachExplain || ""),
-    });
     const c = data._strobeChecks;
     setChecks(Array.isArray(c) ? c.map(String) : []);
   }
@@ -105,9 +95,6 @@ export function CrossSectionalWorkspace({
     setError("");
     try {
       const data: Record<string, unknown> = { ...form };
-      data._reflectDecision = teach.decision;
-      data._reflectUncertain = teach.uncertain;
-      data._teachExplain = teach.explain;
       if (stageId === "reporting") data._strobeChecks = checks;
       if (extraData) Object.assign(data, extraData);
       const updated = saveXsStageData(projectId, stageId, data, extras);
@@ -151,7 +138,7 @@ export function CrossSectionalWorkspace({
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-wide text-teal-700">
-            Cross-sectional · Watch · Do · Teach
+            Cross-sectional · Watch · Do
           </p>
           <h1 className="mt-1 truncate text-xl font-semibold text-slate-900 sm:text-2xl">
             {project.title}
@@ -197,12 +184,11 @@ export function CrossSectionalWorkspace({
         })}
       </div>
 
-      <div className="mt-4 grid grid-cols-3 gap-1 rounded-xl border border-slate-200 bg-white p-1">
+      <div className="mt-4 grid grid-cols-2 gap-1 rounded-xl border border-slate-200 bg-white p-1">
         {(
           [
             ["watch", "Watch", "bg-amber-500"],
             ["do", "Do", "bg-teal-600"],
-            ["teach", "Teach", "bg-violet-600"],
           ] as const
         ).map(([id, label, activeBg]) => (
           <button
@@ -256,58 +242,6 @@ export function CrossSectionalWorkspace({
         </div>
       )}
 
-      {wdt === "teach" && (
-        <div className="mt-6 space-y-4">
-          {(
-            [
-              ["explain", "Teach it (90s)", stage.teach.explain],
-              ["decision", "Reflect — decision", stage.teach.reflectDecision],
-              ["uncertain", "Reflect — uncertainty", stage.teach.reflectUncertain],
-            ] as const
-          ).map(([key, label, prompt]) => (
-            <label
-              key={key}
-              className="block rounded-xl border border-slate-200 bg-white p-4"
-            >
-              <span className="text-sm font-semibold text-slate-900">{label}</span>
-              <span className="mt-1 block text-xs text-slate-500">{prompt}</span>
-              <textarea
-                rows={3}
-                disabled={readOnly}
-                value={
-                  key === "explain"
-                    ? teach.explain
-                    : key === "decision"
-                      ? teach.decision
-                      : teach.uncertain
-                }
-                onChange={(e) => {
-                  const v = e.target.value;
-                  setTeach((t) =>
-                    key === "explain"
-                      ? { ...t, explain: v }
-                      : key === "decision"
-                        ? { ...t, decision: v }
-                        : { ...t, uncertain: v }
-                  );
-                }}
-                onBlur={() => void persist()}
-                className="mt-2 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm"
-              />
-            </label>
-          ))}
-          {!readOnly && (
-            <button
-              type="button"
-              disabled={saving}
-              onClick={() => void persist()}
-              className="rounded-lg bg-violet-700 px-4 py-2 text-sm font-semibold text-white"
-            >
-              {saving ? "Saving…" : "Save teach answers"}
-            </button>
-          )}
-        </div>
-      )}
 
       {wdt === "do" && (
         <div className="mt-6 space-y-4">
@@ -352,10 +286,7 @@ export function CrossSectionalWorkspace({
                         try {
                           const data: Record<string, unknown> = {
                             ...nextForm,
-                            _reflectDecision: teach.decision,
-                            _reflectUncertain: teach.uncertain,
-                            _teachExplain: teach.explain,
-                          };
+                                                      };
                           if (stageId === "reporting")
                             data._strobeChecks = checks;
                           const updated = saveXsStageData(
@@ -489,13 +420,6 @@ export function CrossSectionalWorkspace({
             ) : (
               <span />
             )}
-            <button
-              type="button"
-              onClick={() => setWdt("teach")}
-              className="text-sm font-semibold text-violet-700"
-            >
-              Teach →
-            </button>
             {next ? (
               <Link
                 href={`${base}/${next.id}`}

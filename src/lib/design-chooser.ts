@@ -104,7 +104,7 @@ export function classifyDesign(
       rationale: [
         "Random allocation to intervention vs control is the hallmark of an RCT.",
         "Plan SPIRIT (protocol) and CONSORT (reporting).",
-        "Open the RCT track to draft PICOT, randomisation, and sample size with Watch · Do · Teach.",
+        "Open the RCT track to draft PICOT, randomisation, and sample size with Watch · Do.",
       ],
       confidence: "high",
     };
@@ -117,7 +117,7 @@ export function classifyDesign(
       rationale: [
         "An intervention with comparison but without randomisation is typically quasi-experimental.",
         "Explicitly list threats to validity (selection, trends, regression to the mean).",
-        "Open the Quasi-experimental track to plan ITS/DiD/CBA with Watch · Do · Teach.",
+        "Open the Quasi-experimental track to plan ITS/DiD/CBA with Watch · Do.",
       ],
       confidence: a("randomised") === "unsure" ? "low" : "moderate",
     };
@@ -130,7 +130,7 @@ export function classifyDesign(
       rationale: [
         "Following people over time by exposure/risk status points to a cohort design.",
         "Address confounding and loss to follow-up in the protocol.",
-        "Open the Cohort track to plan with Watch · Do · Teach.",
+        "Open the Cohort track to plan with Watch · Do.",
       ],
       confidence: "moderate",
     };
@@ -143,7 +143,7 @@ export function classifyDesign(
       rationale: [
         "A single-time snapshot (prevalence, survey) is cross-sectional.",
         "Avoid causal language; report sampling and response clearly (STROBE).",
-        "Open the Cross-sectional track to plan your study with Watch · Do · Teach.",
+        "Open the Cross-sectional track to plan your study with Watch · Do.",
       ],
       confidence: "moderate",
     };

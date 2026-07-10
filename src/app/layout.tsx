@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "EvidenceFlow — Learn evidence methods by doing",
   description:
-    "Watch · Do · Teach guides for case reports, study designs, and systematic reviews / meta-analysis. Mobile-friendly educational workspace.",
+    "Watch · Do guides for case reports, study designs, and systematic reviews / meta-analysis. Mobile-friendly educational workspace.",
 };
 
 export const viewport = {
@@ -64,7 +64,7 @@ export default function RootLayout({
               </p>
               <p className="mt-1 max-w-2xl">
                 Educational tool for learning clinical evidence methods by doing
-                (Watch · Do · Teach) — study designs and systematic reviews. Not a
+                (Watch · Do) — study designs and systematic reviews. Not a
                 substitute for methodological expertise, ethics approval, or journal
                 requirements. Cite CARE / STROBE / CONSORT / PRISMA / Cochrane / GRADE
                 sources as appropriate.

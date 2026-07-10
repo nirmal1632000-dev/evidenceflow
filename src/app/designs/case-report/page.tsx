@@ -53,7 +53,7 @@ function CaseReportHomeInner() {
       </h1>
       <p className="mt-2 text-sm text-slate-600">
         Learn by writing a CARE-inspired case report or series: 9 stages with
-        Watch · Do · Teach. Stored in this browser (local).
+        Watch · Do. Stored in this browser (local).
       </p>
 
       <div className="mt-4 flex flex-col gap-2 sm:flex-row">

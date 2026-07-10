@@ -260,7 +260,7 @@ export const FOUNDATION_MODULES: Record<FoundationModuleId, FoundationModule> = 
       {
         heading: "How philosophy should change your hands-on work",
         paragraphs: [
-          "In EvidenceFlow’s Watch · Do · Teach loop, philosophy is practical: Watch models disciplined process; Do forces you to write rules you can defend; Teach asks you to explain why those rules produce better knowledge claims.",
+          "In EvidenceFlow’s Watch · Do loop, philosophy is practical: Watch models disciplined process; Do forces you to write rules you can defend in a protocol or paper.",
           "When stuck between ‘pool’ and ‘don’t pool’, or ‘include this borderline trial’, ask: What claim am I entitled to make if I choose this way? Would a sceptical peer see selection or analytical flexibility? That is epistemology at the keyboard.",
         ],
       },

@@ -39,7 +39,7 @@ export default function CohortIndexPage() {
       </h1>
       <p className="mt-2 text-sm text-slate-600">
         Learn by planning a STROBE-inspired cohort: exposure first, outcomes over
-        time, confounding, and follow-up. 9 stages · Watch · Do · Teach · local
+        time, confounding, and follow-up. 9 stages · Watch · Do · local
         storage.
       </p>
 

@@ -46,7 +46,6 @@ import type { RobGridMap } from "@/lib/rob";
 import { PresenceBanner } from "./PresenceBanner";
 import { WdtTabs } from "./WdtTabs";
 import { WatchPanel } from "./WatchPanel";
-import { TeachPanel } from "./TeachPanel";
 import { ExportMenu } from "./ExportMenu";
 
 function ProcessChecklist({
@@ -410,11 +409,7 @@ export function StageWorkspace({
       )}
 
       <div className="mb-6 max-w-xl">
-        <WdtTabs
-          mode={wdtMode}
-          onChange={setWdtMode}
-          stageData={project.stages[stageId]?.data}
-        />
+        <WdtTabs mode={wdtMode} onChange={setWdtMode} />
       </div>
 
       {wdtMode === "watch" && (
@@ -428,46 +423,6 @@ export function StageWorkspace({
             >
               Continue to Do →
             </button>
-          </div>
-        </div>
-      )}
-
-      {wdtMode === "teach" && (
-        <div className="max-w-3xl">
-          <TeachPanel
-            stageId={stageId}
-            data={project.stages[stageId]?.data}
-            readOnly={!canEdit}
-            onSave={async (patch) => {
-              if (mode === "cloud") {
-                const updated = await cloudSaveStageData(
-                  projectId,
-                  stageId,
-                  patch
-                );
-                applyProject(updated);
-              } else {
-                const updated = saveStageData(projectId, stageId, patch);
-                if (updated) applyProject({ ...updated, mode: "local" });
-              }
-            }}
-          />
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <button
-              type="button"
-              onClick={() => setWdtMode("do")}
-              className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700"
-            >
-              ← Back to Do
-            </button>
-            {next && (
-              <Link
-                href={`${basePath}/${next.id}${readOnly && !shareBasePath ? "" : qs}`}
-                className="rounded-lg bg-violet-700 px-4 py-2 text-sm font-semibold text-white"
-              >
-                Next stage →
-              </Link>
-            )}
           </div>
         </div>
       )}
@@ -928,13 +883,6 @@ export function StageWorkspace({
               ) : (
                 <span />
               )}
-              <button
-                type="button"
-                onClick={() => setWdtMode("teach")}
-                className="rounded-lg border border-violet-200 bg-violet-50 px-3 py-1.5 text-xs font-semibold text-violet-900"
-              >
-                Teach this stage →
-              </button>
               {next ? (
                 <Link
                   href={`${basePath}/${next.id}${readOnly && !shareBasePath ? "" : qs}`}

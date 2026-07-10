@@ -39,7 +39,7 @@ export default function CrossSectionalIndexPage() {
       </h1>
       <p className="mt-2 text-sm text-slate-600">
         Learn by planning a STROBE-inspired snapshot study: prevalence or
-        associations at one time point. 8 stages · Watch · Do · Teach · local
+        associations at one time point. 8 stages · Watch · Do · local
         storage.
       </p>
 

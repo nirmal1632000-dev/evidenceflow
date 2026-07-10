@@ -1,7 +1,6 @@
 "use client";
 
 import type { WdtMode } from "@/lib/pedagogy";
-import { countTeachProgress } from "@/lib/pedagogy";
 
 const TABS: {
   id: WdtMode;
@@ -13,7 +12,7 @@ const TABS: {
   {
     id: "watch",
     label: "Watch",
-    short: "Model",
+    short: "Model example",
     color: "text-amber-800",
     active: "bg-amber-500 text-white shadow-sm",
   },
@@ -24,34 +23,25 @@ const TABS: {
     color: "text-teal-800",
     active: "bg-teal-600 text-white shadow-sm",
   },
-  {
-    id: "teach",
-    label: "Teach",
-    short: "Explain",
-    color: "text-violet-800",
-    active: "bg-violet-600 text-white shadow-sm",
-  },
 ];
 
 export function WdtTabs({
   mode,
   onChange,
-  stageData,
 }: {
   mode: WdtMode;
   onChange: (m: WdtMode) => void;
+  /** @deprecated unused — kept optional for call-site compatibility */
   stageData?: Record<string, unknown>;
 }) {
-  const teach = countTeachProgress(stageData);
-
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-2 shadow-sm">
       <div className="mb-2 px-1">
         <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
-          Learn by doing · watch → do → teach
+          Learn by doing · watch → do
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-1">
+      <div className="grid grid-cols-2 gap-1">
         {TABS.map((t) => {
           const isOn = mode === t.id;
           return (
@@ -69,9 +59,7 @@ export function WdtTabs({
                   isOn ? "text-white/90" : "text-slate-500"
                 }`}
               >
-                {t.id === "teach"
-                  ? `${teach.filled}/4 prompts`
-                  : t.short}
+                {t.short}
               </span>
             </button>
           );

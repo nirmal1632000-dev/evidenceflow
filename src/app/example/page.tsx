@@ -20,7 +20,7 @@ export default function ExamplePage() {
         A complete fictional but realistic review for the{" "}
         <strong>Watch</strong> step of learn-by-doing. Take the guided tour first,
         open any stage (Watch tab shows annotated fields), then create your own
-        project to <strong>Do</strong> and <strong>Teach</strong>.
+        project to <strong>Do</strong>.
       </p>
 
       <div className="mt-6 max-w-sm">
