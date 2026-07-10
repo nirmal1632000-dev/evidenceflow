@@ -1,36 +1,170 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EvidenceFlow
 
-## Getting Started
+**Learn systematic reviews and meta-analysis by doing them.**
 
-First, run the development server:
+Live demo: **[https://evidenceflow-iota.vercel.app](https://evidenceflow-iota.vercel.app)**
+
+EvidenceFlow is a guided web app for:
+
+- **Watch · Do · Teach** learning at every stage  
+- A full **11-stage workspace** (PICO → PRISMA)  
+- **Foundations** (history & philosophy of SR/MA)  
+- **Software modules** (pros/cons, workflows, references)  
+- Teaching tools (MA calculators, sensitivity, worked example)
+
+Educational aid only — not a substitute for methods training, supervision, or ethics review.
+
+---
+
+## Quick start (local)
 
 ```bash
+git clone <your-repo-url>
+cd evidenceflow
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Requirements:** Node.js 20+ recommended.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Local development |
+| `npm run build` | Production build |
+| `npm run start` | Serve production build |
+| `npm run lint` | ESLint |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Pedagogy
 
-## Deploy on Vercel
+### Foundations
+1. [History of SR & MA](/learn/foundations/history)  
+2. [Philosophy of evidence synthesis](/learn/foundations/philosophy)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Stage pipeline
+Question → Eligibility → Protocol → Search → Screening → Extraction → RoB → Synthesis → Meta-analysis → GRADE → Reporting
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+On each stage:
+
+1. **Watch** — model / annotated example  
+2. **Do** — your project fields & tools  
+3. **Teach** — reflect + explain-back (exportable learning pack)
+
+### Software modules
+Not a bare list: each tool has pros/cons, when/how to use, pitfalls, and references  
+→ `/tools` and `/tools/software/[slug]`
+
+---
+
+## Data storage
+
+### Local mode (default)
+Browser **localStorage** — solo practice, no account.
+
+### Team / cloud mode
+**Supabase** auth + Postgres — multi-device collaboration via invite code.
+
+1. Create a project at [supabase.com](https://supabase.com)  
+2. Run `supabase/schema.sql` in the SQL Editor  
+3. Optional: `supabase/share-and-presence.sql` for live view-only share links + realtime tables  
+4. Copy URL + anon key to `.env.local` (see `.env.local.example`)  
+5. Set the same vars in your host (e.g. Vercel → Environment Variables)  
+6. Auth URL config (example production site):
+   - **Site URL:** `https://evidenceflow-iota.vercel.app`  
+   - **Redirect URLs:**  
+     - `https://evidenceflow-iota.vercel.app/auth/callback`  
+     - `http://localhost:3000/auth/callback`  
+7. In-app guide: `/setup`
+
+Then: Sign in → Create team project → Share invite code → collaborators join.
+
+---
+
+## Deploy (Vercel)
+
+### Already linked
+This project is deployed at:
+
+**https://evidenceflow-iota.vercel.app**
+
+### Redeploy from CLI
+
+```bash
+cd evidenceflow
+npx vercel --prod
+```
+
+### Deploy from GitHub (recommended long-term)
+
+1. Push this repo to GitHub (see below)  
+2. [vercel.com](https://vercel.com) → **Add New Project** → import the repo  
+3. Framework: Next.js (auto-detected)  
+4. Add env vars if using Supabase:
+   - `NEXT_PUBLIC_SUPABASE_URL`  
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`  
+5. Deploy  
+
+Every push to `master`/`main` can auto-deploy if Git integration is enabled.
+
+---
+
+## Environment variables
+
+Copy the example file:
+
+```bash
+cp .env.local.example .env.local
+```
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `NEXT_PUBLIC_SUPABASE_URL` | For cloud only | Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | For cloud only | Supabase anon/public key |
+
+Never commit real `.env.local` or secrets (already in `.gitignore`).
+
+---
+
+## Stack
+
+- **Next.js** (App Router) + TypeScript  
+- **Tailwind CSS** v4  
+- **Supabase** (optional auth + DB)  
+- **Vercel** hosting  
+
+---
+
+## Project layout (high level)
+
+```
+src/app/           # Routes (learn, workspace, tools, share, auth…)
+src/components/    # UI (stages, calculators, WDT tabs…)
+src/lib/           # Stages, pedagogy, software modules, foundations, stats
+supabase/          # SQL schema + optional share/presence migration
+```
+
+---
+
+## Scope (v1)
+
+- Intervention systematic reviews of **RCTs**  
+- Optional pairwise meta-analysis (teaching calculators + external tools)  
+- Not: full Covidence replacement, network MA, diagnostic accuracy tracks  
+
+---
+
+## Contributing / teaching use
+
+Use and share freely for learning and teaching.  
+When teaching from PRISMA / Cochrane / GRADE materials, cite the original sources (linked inside Learn and Software modules).
+
+## License
+
+Use and share freely for learning and teaching.
