@@ -19,7 +19,7 @@ Educational aid only — not a substitute for methods training, supervision, or 
 ## Quick start (local)
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/nirmal1632000-dev/evidenceflow.git
 cd evidenceflow
 npm install
 npm run dev
