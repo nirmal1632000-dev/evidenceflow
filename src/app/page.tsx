@@ -42,6 +42,12 @@ export default function HomePage() {
               Cohort
             </Link>
             <Link
+              href="/designs/quasi"
+              className="rounded-lg border border-indigo-300 bg-indigo-50 px-4 py-3 text-center text-sm font-semibold text-indigo-950"
+            >
+              Quasi
+            </Link>
+            <Link
               href="/workspace"
               className="rounded-lg border border-slate-200 bg-white px-4 py-3 text-center text-sm font-semibold text-slate-800"
             >
@@ -76,8 +82,8 @@ export default function HomePage() {
               Study design tracks
             </h3>
             <p className="mt-2 text-sm text-slate-600">
-              Case report, cross-sectional, and cohort live. Quasi and RCT on
-              the roadmap. Design chooser + appraisal red flags for all.
+              Case report, cross-sectional, cohort, and quasi live. RCT on the
+              roadmap. Design chooser + appraisal red flags for all.
             </p>
             <span className="mt-3 inline-block text-sm font-semibold text-teal-800">
               Open designs →

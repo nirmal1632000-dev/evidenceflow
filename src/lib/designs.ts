@@ -132,7 +132,7 @@ export const DESIGN_TRACKS: DesignTrack[] = [
     title: "Quasi-experimental",
     shortTitle: "Quasi",
     family: "produce",
-    status: "soon",
+    status: "live",
     summary:
       "Intervention evaluation without full randomisation (e.g. before–after, ITS, difference-in-differences).",
     whenToUse:
@@ -140,6 +140,7 @@ export const DESIGN_TRACKS: DesignTrack[] = [
     whenNot: "Treating simple before–after as proof without threats-to-validity analysis.",
     reportingGuide: "TREND / ROBINS-I thinking + transparent assumptions",
     reportingUrl: "https://www.riskofbias.info/",
+    href: "/designs/quasi",
     strengths: ["Real-world programs", "Can use routine data"],
     redFlags: [
       "No control for secular trends",

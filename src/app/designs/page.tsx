@@ -123,10 +123,10 @@ export default function DesignsHubPage() {
 
       <section className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
         <strong className="text-slate-900">Live now:</strong> Case report/series,
-        cross-sectional, cohort, and SR/MA.{" "}
-        <strong className="text-slate-900">Roadmap:</strong> quasi-experimental
-        and RCT full workspaces — same Watch · Do · Teach pattern. Appraisal flags
-        for all designs are already live.
+        cross-sectional, cohort, quasi-experimental, and SR/MA.{" "}
+        <strong className="text-slate-900">Roadmap:</strong> RCT full workspace
+        next — same Watch · Do · Teach pattern. Appraisal flags for all designs
+        are already live.
         <ul className="mt-2 list-disc pl-5 text-xs">
           {DESIGN_TRACKS.filter((d) => d.status === "soon").map((d) => (
             <li key={d.id}>{d.title}</li>

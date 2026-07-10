@@ -116,6 +116,7 @@ export function classifyDesign(
       rationale: [
         "An intervention with comparison but without randomisation is typically quasi-experimental.",
         "Explicitly list threats to validity (selection, trends, regression to the mean).",
+        "Open the Quasi-experimental track to plan ITS/DiD/CBA with Watch · Do · Teach.",
       ],
       confidence: a("randomised") === "unsure" ? "low" : "moderate",
     };
