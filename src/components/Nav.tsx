@@ -18,6 +18,7 @@ const moreLinks = [
   { href: "/designs/chooser", label: "Design chooser" },
   { href: "/designs/case-report", label: "Case report track" },
   { href: "/designs/cross-sectional", label: "Cross-sectional track" },
+  { href: "/designs/cohort", label: "Cohort track" },
   { href: "/designs/appraise", label: "Appraisal flags" },
   { href: "/example/tour", label: "SR watch tour" },
   { href: "/example", label: "SR example" },

@@ -110,7 +110,7 @@ export const DESIGN_TRACKS: DesignTrack[] = [
     title: "Cohort study",
     shortTitle: "Cohort",
     family: "produce",
-    status: "soon",
+    status: "live",
     summary:
       "Follow people over time by exposure status to observe outcomes — prospective or retrospective.",
     whenToUse:
@@ -118,6 +118,7 @@ export const DESIGN_TRACKS: DesignTrack[] = [
     whenNot: "Ignoring confounding; reverse causation in poorly timed measurements.",
     reportingGuide: "STROBE (cohort)",
     reportingUrl: "https://www.strobe-statement.org/",
+    href: "/designs/cohort",
     strengths: ["Temporality clearer than cross-sectional", "Multiple outcomes possible"],
     redFlags: [
       "Confounding not addressed",

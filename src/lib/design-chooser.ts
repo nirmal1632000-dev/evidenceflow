@@ -128,6 +128,7 @@ export function classifyDesign(
       rationale: [
         "Following people over time by exposure/risk status points to a cohort design.",
         "Address confounding and loss to follow-up in the protocol.",
+        "Open the Cohort track to plan with Watch · Do · Teach.",
       ],
       confidence: "moderate",
     };
