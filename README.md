@@ -11,8 +11,7 @@ EvidenceFlow is a guided web app for:
 - **Design tracks** — case report, cross-sectional, cohort, quasi-experimental, RCT  
 - **SR/MA workspace** — full 11-stage pipeline (PICO → PRISMA)  
 - **Watch · Do** on every stage — model example, then write your own  
-- **Word export** drafts · foundations · software modules · calculators  
-- **AI case draft** — paste de-identified crude notes → CARE fields + Word (requires `XAI_API_KEY`)
+- **Word export** drafts · foundations · software modules · calculators
 
 Educational aid only — not a substitute for methods training, supervision, or ethics review.
 
