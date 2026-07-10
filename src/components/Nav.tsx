@@ -17,6 +17,8 @@ const primaryLinks = [
 const moreLinks = [
   { href: "/designs/chooser", label: "Design chooser" },
   { href: "/designs/case-report", label: "Case report track" },
+  { href: "/designs/cross-sectional", label: "Cross-sectional track" },
+  { href: "/designs/appraise", label: "Appraisal flags" },
   { href: "/example/tour", label: "SR watch tour" },
   { href: "/example", label: "SR example" },
   { href: "/learn/foundations/history", label: "History" },

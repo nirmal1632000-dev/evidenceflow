@@ -89,13 +89,14 @@ export const DESIGN_TRACKS: DesignTrack[] = [
     title: "Cross-sectional study",
     shortTitle: "Cross-sectional",
     family: "produce",
-    status: "soon",
+    status: "live",
     summary:
       "Snapshot of a population at one time — prevalence, associations, surveys.",
     whenToUse: "Prevalence estimates; exploratory associations; needs assessment.",
     whenNot: "Strong claims about cause and effect over time (no temporality).",
     reportingGuide: "STROBE (cross-sectional)",
     reportingUrl: "https://www.strobe-statement.org/",
+    href: "/designs/cross-sectional",
     strengths: ["Often faster than longitudinal work", "Good for surveys"],
     redFlags: [
       "Causal language from a single time point",

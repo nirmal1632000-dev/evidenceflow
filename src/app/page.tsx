@@ -27,7 +27,13 @@ export default function HomePage() {
               href="/designs/case-report"
               className="rounded-lg bg-amber-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm"
             >
-              Case report track
+              Case report
+            </Link>
+            <Link
+              href="/designs/cross-sectional"
+              className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-center text-sm font-semibold text-amber-950"
+            >
+              Cross-sectional
             </Link>
             <Link
               href="/workspace"
@@ -64,9 +70,8 @@ export default function HomePage() {
               Study design tracks
             </h3>
             <p className="mt-2 text-sm text-slate-600">
-              Case report / series live now. Cross-sectional, cohort, quasi, and
-              RCT tracks on the roadmap. Design chooser + appraisal red flags
-              for all.
+              Case report/series and cross-sectional live. Cohort, quasi, and
+              RCT on the roadmap. Design chooser + appraisal red flags for all.
             </p>
             <span className="mt-3 inline-block text-sm font-semibold text-teal-800">
               Open designs →

@@ -140,6 +140,7 @@ export function classifyDesign(
       rationale: [
         "A single-time snapshot (prevalence, survey) is cross-sectional.",
         "Avoid causal language; report sampling and response clearly (STROBE).",
+        "Open the Cross-sectional track to plan your study with Watch · Do · Teach.",
       ],
       confidence: "moderate",
     };
