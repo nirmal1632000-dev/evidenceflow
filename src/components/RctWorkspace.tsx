@@ -17,6 +17,7 @@ import {
   type RctProject,
   type RctStageId,
 } from "@/lib/rct";
+import { buildRctJournalManuscript } from "@/lib/journal-manuscript";
 import { ExportMenu } from "./ExportMenu";
 
 type Wdt = "watch" | "do";
@@ -398,13 +399,24 @@ export function RctWorkspace({
               title={project.title}
               items={[
                 {
+                  id: "journal",
+                  label: "Journal manuscript",
+                  suffix: "journal",
+                  markdown: () =>
+                    buildRctJournalManuscript(
+                      getRctProject(projectId) || project
+                    ),
+                  variant: "primary",
+                },
+                {
                   id: "draft",
-                  label: "Protocol draft",
+                  label: "Workspace pack",
+                  suffix: "workspace",
                   markdown: () =>
                     buildRctExportMarkdown(
                       getRctProject(projectId) || project
                     ),
-                  variant: "primary",
+                  variant: "secondary",
                 },
               ]}
             />

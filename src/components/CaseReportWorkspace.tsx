@@ -17,6 +17,7 @@ import {
   type CaseProject,
   type CaseStageId,
 } from "@/lib/case-report";
+import { buildCaseJournalManuscript } from "@/lib/journal-manuscript";
 import { ExportMenu } from "./ExportMenu";
 
 type Wdt = "watch" | "do";
@@ -376,13 +377,24 @@ export function CaseReportWorkspace({
               title={project.title}
               items={[
                 {
+                  id: "journal",
+                  label: "Journal manuscript",
+                  suffix: "journal",
+                  markdown: () =>
+                    buildCaseJournalManuscript(
+                      getCaseProject(projectId) || project
+                    ),
+                  variant: "primary",
+                },
+                {
                   id: "draft",
-                  label: "Case draft",
+                  label: "Workspace pack",
+                  suffix: "workspace",
                   markdown: () =>
                     buildCaseExportMarkdown(
                       getCaseProject(projectId) || project
                     ),
-                  variant: "primary",
+                  variant: "secondary",
                 },
               ]}
             />

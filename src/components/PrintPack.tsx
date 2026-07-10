@@ -10,6 +10,7 @@ import {
 import { parseStudies, studiesToMarkdownTable } from "@/lib/studies";
 import { computeReadiness } from "@/lib/readiness";
 import { PRISMA_ITEMS } from "@/lib/prisma-items";
+import { buildSrJournalManuscript } from "@/lib/journal-manuscript";
 import { ExportMenu } from "./ExportMenu";
 
 export function PrintPack({ project }: { project: Project }) {
@@ -110,11 +111,17 @@ export function PrintPack({ project }: { project: Project }) {
             title={project.title}
             items={[
               {
+                id: "journal",
+                label: "Journal package",
+                suffix: "journal",
+                markdown: () => buildSrJournalManuscript(project),
+                variant: "primary",
+              },
+              {
                 id: "full",
-                label: "Full package",
+                label: "Full workspace pack",
                 suffix: "full",
                 markdown: () => buildFullExportMarkdown(project),
-                variant: "primary",
               },
               {
                 id: "protocol",

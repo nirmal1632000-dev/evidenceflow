@@ -12,6 +12,7 @@ import {
   type CohortProject,
 } from "@/lib/cohort";
 import { ExportMenu } from "@/components/ExportMenu";
+import { buildCohortJournalManuscript } from "@/lib/journal-manuscript";
 
 export default function CohortProjectHomePage() {
   const params = useParams();
@@ -65,10 +66,18 @@ export default function CohortProjectHomePage() {
           title={project.title}
           items={[
             {
-              id: "draft",
-              label: "Study draft",
-              markdown: () => buildCohortExportMarkdown(project),
+              id: "journal",
+              label: "Journal manuscript",
+              suffix: "journal",
+              markdown: () => buildCohortJournalManuscript(project),
               variant: "primary",
+            },
+            {
+              id: "draft",
+              label: "Workspace pack",
+              suffix: "workspace",
+              markdown: () => buildCohortExportMarkdown(project),
+              variant: "secondary",
             },
           ]}
         />

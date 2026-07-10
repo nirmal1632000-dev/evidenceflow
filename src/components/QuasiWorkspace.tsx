@@ -17,6 +17,7 @@ import {
   type QuasiProject,
   type QuasiStageId,
 } from "@/lib/quasi";
+import { buildQuasiJournalManuscript } from "@/lib/journal-manuscript";
 import { ExportMenu } from "./ExportMenu";
 
 type Wdt = "watch" | "do";
@@ -398,13 +399,24 @@ export function QuasiWorkspace({
               title={project.title}
               items={[
                 {
+                  id: "journal",
+                  label: "Journal manuscript",
+                  suffix: "journal",
+                  markdown: () =>
+                    buildQuasiJournalManuscript(
+                      getQuasiProject(projectId) || project
+                    ),
+                  variant: "primary",
+                },
+                {
                   id: "draft",
-                  label: "Study draft",
+                  label: "Workspace pack",
+                  suffix: "workspace",
                   markdown: () =>
                     buildQuasiExportMarkdown(
                       getQuasiProject(projectId) || project
                     ),
-                  variant: "primary",
+                  variant: "secondary",
                 },
               ]}
             />

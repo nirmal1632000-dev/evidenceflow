@@ -34,6 +34,7 @@ import { PrintPack } from "./PrintPack";
 import { PresenceBanner } from "./PresenceBanner";
 import { ExportMenu } from "./ExportMenu";
 import { exportSlug } from "@/lib/export-docx";
+import { buildSrJournalManuscript } from "@/lib/journal-manuscript";
 
 export function ProjectHome({ projectId }: { projectId: string }) {
   const searchParams = useSearchParams();
@@ -368,13 +369,20 @@ export function ProjectHome({ projectId }: { projectId: string }) {
           Export Word drafts
         </h2>
         <p className="mt-1 text-xs text-slate-500">
-          Formatted .docx for editing in Word or Google Docs. Markdown is under
-          Advanced.
+          <strong>Journal package</strong> is PRISMA-ordered for manuscript
+          writing. Other buttons are section drafts. Markdown under Advanced.
         </p>
         <ExportMenu
           className="mt-3"
           title={project.title}
           items={[
+            {
+              id: "journal",
+              label: "Journal package",
+              suffix: "journal",
+              markdown: () => buildSrJournalManuscript(project),
+              variant: "primary",
+            },
             {
               id: "protocol",
               label: "Protocol",
@@ -398,10 +406,10 @@ export function ProjectHome({ projectId }: { projectId: string }) {
             },
             {
               id: "full",
-              label: "Full package",
+              label: "Full workspace pack",
               suffix: "full",
               markdown: () => buildFullExportMarkdown(project),
-              variant: "primary",
+              variant: "secondary",
             },
           ]}
         />

@@ -17,6 +17,7 @@ import {
   type XsProject,
   type XsStageId,
 } from "@/lib/cross-sectional";
+import { buildXsJournalManuscript } from "@/lib/journal-manuscript";
 import { ExportMenu } from "./ExportMenu";
 
 type Wdt = "watch" | "do";
@@ -398,11 +399,22 @@ export function CrossSectionalWorkspace({
               title={project.title}
               items={[
                 {
+                  id: "journal",
+                  label: "Journal manuscript",
+                  suffix: "journal",
+                  markdown: () =>
+                    buildXsJournalManuscript(
+                      getXsProject(projectId) || project
+                    ),
+                  variant: "primary",
+                },
+                {
                   id: "draft",
-                  label: "Study draft",
+                  label: "Workspace pack",
+                  suffix: "workspace",
                   markdown: () =>
                     buildXsExportMarkdown(getXsProject(projectId) || project),
-                  variant: "primary",
+                  variant: "secondary",
                 },
               ]}
             />

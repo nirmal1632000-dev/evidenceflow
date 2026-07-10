@@ -60,6 +60,12 @@ export default function HomePage() {
               SR / MA workspace
             </Link>
             <Link
+              href="/thesis"
+              className="rounded-lg border border-violet-300 bg-violet-50 px-4 py-3 text-center text-sm font-semibold text-violet-950"
+            >
+              Thesis roadmap
+            </Link>
+            <Link
               href="/designs/chooser"
               className="rounded-lg px-4 py-3 text-center text-sm font-semibold text-teal-800"
             >
@@ -76,7 +82,7 @@ export default function HomePage() {
         <h2 className="text-xl font-semibold text-slate-900 sm:text-2xl">
           Two ways in
         </h2>
-        <div className="mt-5 grid gap-4 md:grid-cols-2">
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
           <Link
             href="/designs"
             className="block rounded-2xl border border-teal-200 bg-teal-50/50 p-5 shadow-sm"
@@ -88,8 +94,7 @@ export default function HomePage() {
               Study design tracks
             </h3>
             <p className="mt-2 text-sm text-slate-600">
-              Full produce suite live (case → RCT) plus SR/MA synthesis. Design
-              chooser + appraisal red flags for all.
+              Case → RCT with Watch · Do and journal-shaped Word export.
             </p>
             <span className="mt-3 inline-block text-sm font-semibold text-teal-800">
               Open designs →
@@ -106,11 +111,28 @@ export default function HomePage() {
               Systematic review &amp; MA
             </h3>
             <p className="mt-2 text-sm text-slate-600">
-              Full 11-stage workspace, foundations (history &amp; philosophy),
-              software modules, calculators, and exports.
+              11-stage workspace, tools, and PRISMA-ordered journal package.
             </p>
             <span className="mt-3 inline-block text-sm font-semibold text-violet-800">
               Open SR/MA →
+            </span>
+          </Link>
+          <Link
+            href="/thesis"
+            className="block rounded-2xl border border-amber-200 bg-amber-50/50 p-5 shadow-sm"
+          >
+            <p className="text-xs font-bold uppercase text-amber-800">
+              Residency
+            </p>
+            <h3 className="mt-1 text-lg font-semibold text-slate-900">
+              Thesis roadmap
+            </h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Protocol → data → writing → viva → publication. Never stuck on
+              “what next?”
+            </p>
+            <span className="mt-3 inline-block text-sm font-semibold text-amber-900">
+              Open thesis guide →
             </span>
           </Link>
         </div>

@@ -9,12 +9,14 @@ import { ThemeToggle } from "./ThemeProvider";
 const primaryLinks = [
   { href: "/designs", label: "Designs" },
   { href: "/workspace", label: "SR / MA" },
+  { href: "/thesis", label: "Thesis" },
   { href: "/learn", label: "Learn" },
   { href: "/tools", label: "Software" },
   { href: "/guide", label: "How-to" },
 ];
 
 const moreLinks = [
+  { href: "/thesis", label: "Thesis roadmap" },
   { href: "/designs/chooser", label: "Design chooser" },
   { href: "/designs/case-report", label: "Case report track" },
   { href: "/designs/cross-sectional", label: "Cross-sectional track" },

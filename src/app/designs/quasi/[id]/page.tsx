@@ -12,6 +12,7 @@ import {
   type QuasiProject,
 } from "@/lib/quasi";
 import { ExportMenu } from "@/components/ExportMenu";
+import { buildQuasiJournalManuscript } from "@/lib/journal-manuscript";
 
 export default function QuasiProjectHomePage() {
   const params = useParams();
@@ -66,10 +67,18 @@ export default function QuasiProjectHomePage() {
           title={project.title}
           items={[
             {
-              id: "draft",
-              label: "Study draft",
-              markdown: () => buildQuasiExportMarkdown(project),
+              id: "journal",
+              label: "Journal manuscript",
+              suffix: "journal",
+              markdown: () => buildQuasiJournalManuscript(project),
               variant: "primary",
+            },
+            {
+              id: "draft",
+              label: "Workspace pack",
+              suffix: "workspace",
+              markdown: () => buildQuasiExportMarkdown(project),
+              variant: "secondary",
             },
           ]}
         />

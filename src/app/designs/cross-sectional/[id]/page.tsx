@@ -12,6 +12,7 @@ import {
   type XsProject,
 } from "@/lib/cross-sectional";
 import { ExportMenu } from "@/components/ExportMenu";
+import { buildXsJournalManuscript } from "@/lib/journal-manuscript";
 
 export default function XsProjectHomePage() {
   const params = useParams();
@@ -68,10 +69,18 @@ export default function XsProjectHomePage() {
           title={project.title}
           items={[
             {
-              id: "draft",
-              label: "Study draft",
-              markdown: () => buildXsExportMarkdown(project),
+              id: "journal",
+              label: "Journal manuscript",
+              suffix: "journal",
+              markdown: () => buildXsJournalManuscript(project),
               variant: "primary",
+            },
+            {
+              id: "draft",
+              label: "Workspace pack",
+              suffix: "workspace",
+              markdown: () => buildXsExportMarkdown(project),
+              variant: "secondary",
             },
           ]}
         />

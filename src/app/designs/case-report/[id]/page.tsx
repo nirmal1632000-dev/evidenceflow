@@ -12,6 +12,7 @@ import {
   type CaseProject,
 } from "@/lib/case-report";
 import { ExportMenu } from "@/components/ExportMenu";
+import { buildCaseJournalManuscript } from "@/lib/journal-manuscript";
 
 export default function CaseProjectHomePage() {
   const params = useParams();
@@ -66,10 +67,18 @@ export default function CaseProjectHomePage() {
           title={project.title}
           items={[
             {
-              id: "draft",
-              label: "Case draft",
-              markdown: () => buildCaseExportMarkdown(project),
+              id: "journal",
+              label: "Journal manuscript",
+              suffix: "journal",
+              markdown: () => buildCaseJournalManuscript(project),
               variant: "primary",
+            },
+            {
+              id: "draft",
+              label: "Workspace pack",
+              suffix: "workspace",
+              markdown: () => buildCaseExportMarkdown(project),
+              variant: "secondary",
             },
           ]}
         />

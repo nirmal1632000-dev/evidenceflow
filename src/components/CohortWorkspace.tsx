@@ -17,6 +17,7 @@ import {
   type CohortProject,
   type CohortStageId,
 } from "@/lib/cohort";
+import { buildCohortJournalManuscript } from "@/lib/journal-manuscript";
 import { ExportMenu } from "./ExportMenu";
 
 type Wdt = "watch" | "do";
@@ -398,13 +399,24 @@ export function CohortWorkspace({
               title={project.title}
               items={[
                 {
+                  id: "journal",
+                  label: "Journal manuscript",
+                  suffix: "journal",
+                  markdown: () =>
+                    buildCohortJournalManuscript(
+                      getCohortProject(projectId) || project
+                    ),
+                  variant: "primary",
+                },
+                {
                   id: "draft",
-                  label: "Study draft",
+                  label: "Workspace pack",
+                  suffix: "workspace",
                   markdown: () =>
                     buildCohortExportMarkdown(
                       getCohortProject(projectId) || project
                     ),
-                  variant: "primary",
+                  variant: "secondary",
                 },
               ]}
             />

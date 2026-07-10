@@ -46,6 +46,7 @@ import type { RobGridMap } from "@/lib/rob";
 import { PresenceBanner } from "./PresenceBanner";
 import { WdtTabs } from "./WdtTabs";
 import { WatchPanel } from "./WatchPanel";
+import { buildSrJournalManuscript } from "@/lib/journal-manuscript";
 import { ExportMenu } from "./ExportMenu";
 
 function ProcessChecklist({
@@ -920,6 +921,20 @@ export function StageWorkspace({
                 title={project.title}
                 items={[
                   {
+                    id: "journal",
+                    label: "Journal package",
+                    suffix: "journal",
+                    markdown: async () => {
+                      await persist();
+                      const p =
+                        mode === "cloud"
+                          ? await cloudGetProject(projectId)
+                          : getProject(projectId);
+                      return buildSrJournalManuscript(p || project);
+                    },
+                    variant: "primary",
+                  },
+                  {
                     id: "protocol",
                     label: "Protocol",
                     suffix: "protocol",
@@ -935,7 +950,7 @@ export function StageWorkspace({
                   },
                   {
                     id: "full",
-                    label: "Full package",
+                    label: "Full pack",
                     suffix: "full",
                     markdown: async () => {
                       await persist();
@@ -945,7 +960,7 @@ export function StageWorkspace({
                           : getProject(projectId);
                       return buildFullExportMarkdown(p || project);
                     },
-                    variant: "primary",
+                    variant: "secondary",
                   },
                 ]}
               />

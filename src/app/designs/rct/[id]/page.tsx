@@ -12,6 +12,7 @@ import {
   type RctProject,
 } from "@/lib/rct";
 import { ExportMenu } from "@/components/ExportMenu";
+import { buildRctJournalManuscript } from "@/lib/journal-manuscript";
 
 export default function RctProjectHomePage() {
   const params = useParams();
@@ -65,10 +66,18 @@ export default function RctProjectHomePage() {
           title={project.title}
           items={[
             {
-              id: "draft",
-              label: "Protocol draft",
-              markdown: () => buildRctExportMarkdown(project),
+              id: "journal",
+              label: "Journal manuscript",
+              suffix: "journal",
+              markdown: () => buildRctJournalManuscript(project),
               variant: "primary",
+            },
+            {
+              id: "draft",
+              label: "Workspace pack",
+              suffix: "workspace",
+              markdown: () => buildRctExportMarkdown(project),
+              variant: "secondary",
             },
           ]}
         />
