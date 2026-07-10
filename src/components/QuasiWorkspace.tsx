@@ -17,18 +17,9 @@ import {
   type QuasiProject,
   type QuasiStageId,
 } from "@/lib/quasi";
+import { ExportMenu } from "./ExportMenu";
 
 type Wdt = "watch" | "do" | "teach";
-
-function downloadText(filename: string, content: string) {
-  const blob = new Blob([content], { type: "text/markdown;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  a.click();
-  URL.revokeObjectURL(url);
-}
 
 export function QuasiWorkspace({
   projectId,
@@ -468,20 +459,24 @@ export function QuasiWorkspace({
                 {flash && (
                   <span className="self-center text-sm text-teal-700">Saved</span>
                 )}
-                <button
-                  type="button"
-                  onClick={() =>
-                    downloadText(
-                      `${project.title.replace(/\s+/g, "-").toLowerCase()}.md`,
-                      buildQuasiExportMarkdown(getQuasiProject(projectId) || project)
-                    )
-                  }
-                  className="rounded-lg border border-indigo-200 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-950"
-                >
-                  Export Markdown
-                </button>
               </div>
             )}
+            <ExportMenu
+              className="mt-3 w-full"
+              compact
+              title={project.title}
+              items={[
+                {
+                  id: "draft",
+                  label: "Study draft",
+                  markdown: () =>
+                    buildQuasiExportMarkdown(
+                      getQuasiProject(projectId) || project
+                    ),
+                  variant: "primary",
+                },
+              ]}
+            />
           </div>
 
           <p className="text-sm text-slate-500">{stage.nextHint}</p>

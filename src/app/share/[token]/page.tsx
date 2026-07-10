@@ -13,6 +13,7 @@ import { STAGE_ORDER, getStage, buildFullExportMarkdown } from "@/lib/stages";
 import { Pipeline, ProgressBar } from "@/components/Pipeline";
 import { computeProgress } from "@/lib/storage";
 import { ReadinessPanel } from "@/components/ReadinessPanel";
+import { ExportMenu } from "@/components/ExportMenu";
 
 export default function SharePage() {
   const params = useParams();
@@ -144,23 +145,18 @@ export default function SharePage() {
         >
           Open current stage (read-only)
         </Link>
-        <button
-          type="button"
-          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium"
-          onClick={() => {
-            const blob = new Blob([buildFullExportMarkdown(project)], {
-              type: "text/markdown;charset=utf-8",
-            });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = `${project.title.replace(/\s+/g, "-").toLowerCase()}-shared.md`;
-            a.click();
-            URL.revokeObjectURL(url);
-          }}
-        >
-          Download package
-        </button>
+        <ExportMenu
+          title={project.title}
+          items={[
+            {
+              id: "full",
+              label: "Full package",
+              suffix: "shared",
+              markdown: () => buildFullExportMarkdown(project),
+              variant: "primary",
+            },
+          ]}
+        />
         <Link
           href="/workspace"
           className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium"

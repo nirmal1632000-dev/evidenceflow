@@ -47,16 +47,7 @@ import { PresenceBanner } from "./PresenceBanner";
 import { WdtTabs } from "./WdtTabs";
 import { WatchPanel } from "./WatchPanel";
 import { TeachPanel } from "./TeachPanel";
-
-function downloadText(filename: string, content: string) {
-  const blob = new Blob([content], { type: "text/markdown;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  a.click();
-  URL.revokeObjectURL(url);
-}
+import { ExportMenu } from "./ExportMenu";
 
 function ProcessChecklist({
   stageId,
@@ -972,46 +963,44 @@ export function StageWorkspace({
             <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
               <h3 className="text-sm font-semibold text-slate-900">Export</h3>
               <p className="mt-1 text-xs text-slate-500">
-                Download drafts from current project data.
+                Formatted Word drafts from current project data. Markdown under
+                Advanced.
               </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  onClick={async () => {
-                    await persist();
-                    const p =
-                      mode === "cloud"
-                        ? await cloudGetProject(projectId)
-                        : getProject(projectId);
-                    if (p)
-                      downloadText(
-                        `${p.title.replace(/\s+/g, "-").toLowerCase()}-protocol.md`,
-                        buildProtocolMarkdown(p)
-                      );
-                  }}
-                  className="rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-sm ring-1 ring-slate-200"
-                >
-                  Protocol draft (.md)
-                </button>
-                <button
-                  type="button"
-                  onClick={async () => {
-                    await persist();
-                    const p =
-                      mode === "cloud"
-                        ? await cloudGetProject(projectId)
-                        : getProject(projectId);
-                    if (p)
-                      downloadText(
-                        `${p.title.replace(/\s+/g, "-").toLowerCase()}-full-export.md`,
-                        buildFullExportMarkdown(p)
-                      );
-                  }}
-                  className="rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-sm ring-1 ring-slate-200"
-                >
-                  Full project export (.md)
-                </button>
-              </div>
+              <ExportMenu
+                className="mt-3"
+                compact
+                title={project.title}
+                items={[
+                  {
+                    id: "protocol",
+                    label: "Protocol",
+                    suffix: "protocol",
+                    markdown: async () => {
+                      await persist();
+                      const p =
+                        mode === "cloud"
+                          ? await cloudGetProject(projectId)
+                          : getProject(projectId);
+                      return buildProtocolMarkdown(p || project);
+                    },
+                    variant: "secondary",
+                  },
+                  {
+                    id: "full",
+                    label: "Full package",
+                    suffix: "full",
+                    markdown: async () => {
+                      await persist();
+                      const p =
+                        mode === "cloud"
+                          ? await cloudGetProject(projectId)
+                          : getProject(projectId);
+                      return buildFullExportMarkdown(p || project);
+                    },
+                    variant: "primary",
+                  },
+                ]}
+              />
             </div>
           )}
         </section>

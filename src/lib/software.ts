@@ -446,7 +446,7 @@ export const SOFTWARE_CATALOG: SoftwareItem[] = [
       "Registering empty projects with no actual methods content.",
     ],
     withEvidenceFlow:
-      "Export Markdown/CSV packages from EvidenceFlow to OSF; put the OSF link in Reporting stage data-sharing field.",
+      "Export Word drafts (or Advanced Markdown) and CSV from EvidenceFlow to OSF; put the OSF link in Reporting stage data-sharing field.",
     refIds: ["prisma2020", "icmje", "prismaP"],
   },
   {

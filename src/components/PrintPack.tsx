@@ -14,6 +14,7 @@ import {
   buildLearningExportMarkdown,
   projectTeachScore,
 } from "@/lib/pedagogy";
+import { ExportMenu } from "./ExportMenu";
 
 export function PrintPack({ project }: { project: Project }) {
   const readiness = computeReadiness(project);
@@ -111,42 +112,47 @@ export function PrintPack({ project }: { project: Project }) {
 
         <section className="break-inside-avoid print:hidden">
           <h2 className="text-lg font-semibold">Downloads (screen only)</h2>
-          <div className="mt-2 flex flex-wrap gap-3">
-            <button
-              type="button"
-              className="text-sm text-teal-700 underline"
-              onClick={() => {
-                const blob = new Blob([buildFullExportMarkdown(project)], {
-                  type: "text/markdown",
-                });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = `${project.title.replace(/\s+/g, "-")}-full.md`;
-                a.click();
-                URL.revokeObjectURL(url);
-              }}
-            >
-              Full project Markdown
-            </button>
-            <button
-              type="button"
-              className="text-sm text-violet-700 underline"
-              onClick={() => {
-                const blob = new Blob([buildLearningExportMarkdown(project)], {
-                  type: "text/markdown",
-                });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = `${project.title.replace(/\s+/g, "-")}-learning-pack.md`;
-                a.click();
-                URL.revokeObjectURL(url);
-              }}
-            >
-              Learning pack (teach/reflect)
-            </button>
-          </div>
+          <p className="mt-1 text-xs text-slate-500">
+            Word is primary. Markdown is under Advanced.
+          </p>
+          <ExportMenu
+            className="mt-2"
+            title={project.title}
+            items={[
+              {
+                id: "full",
+                label: "Full package",
+                suffix: "full",
+                markdown: () => buildFullExportMarkdown(project),
+                variant: "primary",
+              },
+              {
+                id: "learning",
+                label: "Learning pack",
+                suffix: "learning-pack",
+                markdown: () => buildLearningExportMarkdown(project),
+                variant: "accent",
+              },
+              {
+                id: "protocol",
+                label: "Protocol",
+                suffix: "protocol",
+                markdown: () => buildProtocolMarkdown(project),
+              },
+              {
+                id: "methods",
+                label: "Methods",
+                suffix: "methods",
+                markdown: () => buildMethodsMarkdown(project),
+              },
+              {
+                id: "results",
+                label: "Results skeleton",
+                suffix: "results",
+                markdown: () => buildResultsSkeletonMarkdown(project),
+              },
+            ]}
+          />
         </section>
       </div>
     </div>

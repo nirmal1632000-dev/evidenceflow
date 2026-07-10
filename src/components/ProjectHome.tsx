@@ -36,16 +36,8 @@ import { ReadinessPanel } from "./ReadinessPanel";
 import { PrismaFlow } from "./PrismaFlow";
 import { PrintPack } from "./PrintPack";
 import { PresenceBanner } from "./PresenceBanner";
-
-function downloadText(filename: string, content: string) {
-  const blob = new Blob([content], { type: "text/markdown;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  a.click();
-  URL.revokeObjectURL(url);
-}
+import { ExportMenu } from "./ExportMenu";
+import { exportSlug } from "@/lib/export-docx";
 
 export function ProjectHome({ projectId }: { projectId: string }) {
   const searchParams = useSearchParams();
@@ -355,42 +347,6 @@ export function ProjectHome({ projectId }: { projectId: string }) {
         </Link>
         <button
           type="button"
-          onClick={() =>
-            downloadText(
-              `${project.title.replace(/\s+/g, "-").toLowerCase()}-protocol.md`,
-              buildProtocolMarkdown(project)
-            )
-          }
-          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium"
-        >
-          Protocol
-        </button>
-        <button
-          type="button"
-          onClick={() =>
-            downloadText(
-              `${project.title.replace(/\s+/g, "-").toLowerCase()}-methods.md`,
-              buildMethodsMarkdown(project)
-            )
-          }
-          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium"
-        >
-          Methods draft
-        </button>
-        <button
-          type="button"
-          onClick={() =>
-            downloadText(
-              `${project.title.replace(/\s+/g, "-").toLowerCase()}-results.md`,
-              buildResultsSkeletonMarkdown(project)
-            )
-          }
-          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium"
-        >
-          Results skeleton
-        </button>
-        <button
-          type="button"
           onClick={() => {
             const studies = parseStudies(
               project.stages.extraction?.data?._studies
@@ -401,25 +357,13 @@ export function ProjectHome({ projectId }: { projectId: string }) {
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = `${project.title.replace(/\s+/g, "-").toLowerCase()}-studies.csv`;
+            a.download = `${exportSlug(project.title)}-studies.csv`;
             a.click();
             URL.revokeObjectURL(url);
           }}
           className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium"
         >
           Studies CSV
-        </button>
-        <button
-          type="button"
-          onClick={() =>
-            downloadText(
-              `${project.title.replace(/\s+/g, "-").toLowerCase()}-full.md`,
-              buildFullExportMarkdown(project)
-            )
-          }
-          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium"
-        >
-          Full package
         </button>
         <button
           type="button"
@@ -441,18 +385,57 @@ export function ProjectHome({ projectId }: { projectId: string }) {
         >
           Extraction → MA calc
         </button>
-        <button
-          type="button"
-          onClick={() =>
-            downloadText(
-              `${project.title.replace(/\s+/g, "-").toLowerCase()}-learning-pack.md`,
-              buildLearningExportMarkdown(project)
-            )
-          }
-          className="rounded-lg border border-violet-200 bg-violet-50 px-4 py-2 text-sm font-medium text-violet-950"
-        >
-          Learning pack
-        </button>
+      </div>
+
+      <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4">
+        <h2 className="text-sm font-semibold text-slate-900">
+          Export Word drafts
+        </h2>
+        <p className="mt-1 text-xs text-slate-500">
+          Formatted .docx for editing in Word or Google Docs. Markdown is under
+          Advanced.
+        </p>
+        <ExportMenu
+          className="mt-3"
+          title={project.title}
+          items={[
+            {
+              id: "protocol",
+              label: "Protocol",
+              suffix: "protocol",
+              markdown: () => buildProtocolMarkdown(project),
+              variant: "secondary",
+            },
+            {
+              id: "methods",
+              label: "Methods",
+              suffix: "methods",
+              markdown: () => buildMethodsMarkdown(project),
+              variant: "secondary",
+            },
+            {
+              id: "results",
+              label: "Results skeleton",
+              suffix: "results",
+              markdown: () => buildResultsSkeletonMarkdown(project),
+              variant: "secondary",
+            },
+            {
+              id: "full",
+              label: "Full package",
+              suffix: "full",
+              markdown: () => buildFullExportMarkdown(project),
+              variant: "primary",
+            },
+            {
+              id: "learning",
+              label: "Learning pack",
+              suffix: "learning-pack",
+              markdown: () => buildLearningExportMarkdown(project),
+              variant: "accent",
+            },
+          ]}
+        />
       </div>
 
       {parseStudies(project.stages.extraction?.data?._studies).length > 0 && (

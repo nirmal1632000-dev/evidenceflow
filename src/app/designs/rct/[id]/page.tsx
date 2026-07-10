@@ -11,6 +11,7 @@ import {
   getRctStage,
   type RctProject,
 } from "@/lib/rct";
+import { ExportMenu } from "@/components/ExportMenu";
 
 export default function RctProjectHomePage() {
   const params = useParams();
@@ -53,29 +54,24 @@ export default function RctProjectHomePage() {
         />
       </div>
 
-      <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+      <div className="mt-6 flex flex-col gap-3">
         <Link
           href={`${base}/${project.currentStage}`}
-          className="rounded-lg bg-teal-600 px-4 py-2.5 text-center text-sm font-semibold text-white"
+          className="rounded-lg bg-teal-600 px-4 py-2.5 text-center text-sm font-semibold text-white sm:w-fit"
         >
           Continue current stage
         </Link>
-        <button
-          type="button"
-          className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold"
-          onClick={() => {
-            const md = buildRctExportMarkdown(project);
-            const blob = new Blob([md], { type: "text/markdown" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = `${project.title.replace(/\s+/g, "-")}.md`;
-            a.click();
-            URL.revokeObjectURL(url);
-          }}
-        >
-          Export Markdown
-        </button>
+        <ExportMenu
+          title={project.title}
+          items={[
+            {
+              id: "draft",
+              label: "Protocol draft",
+              markdown: () => buildRctExportMarkdown(project),
+              variant: "primary",
+            },
+          ]}
+        />
       </div>
 
       <ul className="mt-8 divide-y divide-slate-100 rounded-xl border border-slate-200 bg-white">
