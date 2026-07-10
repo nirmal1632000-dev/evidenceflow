@@ -6,11 +6,11 @@ Live demo: **[https://evidenceflow-iota.vercel.app](https://evidenceflow-iota.ve
 
 EvidenceFlow is a guided web app for:
 
-- **Watch · Do · Teach** learning at every stage  
-- A full **11-stage workspace** (PICO → PRISMA)  
-- **Foundations** (history & philosophy of SR/MA)  
-- **Software modules** (pros/cons, workflows, references)  
-- Teaching tools (MA calculators, sensitivity, worked example)
+- **Design hub** — produce evidence (case reports live; more designs soon) or synthesise (SR/MA)  
+- **Design chooser** + **appraisal red flags** by study type  
+- **Case report / series track** — 9 CARE-inspired stages with Watch · Do · Teach  
+- **SR/MA workspace** — full 11-stage pipeline (PICO → PRISMA)  
+- **Foundations** (history & philosophy) + **software modules** + calculators
 
 Educational aid only — not a substitute for methods training, supervision, or ethics review.
 

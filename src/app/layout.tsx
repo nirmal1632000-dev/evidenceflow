@@ -16,9 +16,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EvidenceFlow — Learn & run systematic reviews",
+  title: "EvidenceFlow — Learn evidence methods by doing",
   description:
-    "Guided workspace and learning path for systematic reviews and meta-analysis. Watch · Do · Teach, PICO to PRISMA, with references and software recommendations.",
+    "Watch · Do · Teach guides for case reports, study designs, and systematic reviews / meta-analysis. Mobile-friendly educational workspace.",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 const themeInitScript = `
@@ -57,11 +63,11 @@ export default function RootLayout({
                 EvidenceFlow
               </p>
               <p className="mt-1 max-w-2xl">
-                Educational tool for learning systematic reviews and meta-analysis by
-                doing (Watch · Do · Teach). Not a substitute for methodological
-                expertise, ethics approval, or journal requirements. Ground your work
-                in PRISMA, Cochrane guidance, GRADE, and your supervisors. Key methods
-                sources are cited in each learning module.
+                Educational tool for learning clinical evidence methods by doing
+                (Watch · Do · Teach) — study designs and systematic reviews. Not a
+                substitute for methodological expertise, ethics approval, or journal
+                requirements. Cite CARE / STROBE / CONSORT / PRISMA / Cochrane / GRADE
+                sources as appropriate.
               </p>
             </div>
           </footer>

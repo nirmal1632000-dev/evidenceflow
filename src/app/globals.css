@@ -40,6 +40,29 @@ body {
   margin-top: 0.25rem;
 }
 
+/* Mobile: reduce accidental overflow from wide tables / chips */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* Horizontal chip rows on phones */
+.scroll-x-touch {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* Comfortable tap targets on small screens */
+@media (max-width: 640px) {
+  button,
+  a.rounded-lg,
+  a.rounded-xl {
+    min-height: 2.5rem;
+  }
+}
+
 /* ==========================================================================
    Dark mode — high-contrast remaps
    Strategy:

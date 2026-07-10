@@ -263,6 +263,27 @@ export const REFS: Record<string, Ref> = {
       "Ioannidis JPA. Why most published research findings are false. PLoS Med. 2005;2(8):e124. (Motivates synthesis, bias awareness, and humility — not nihilism.)",
     url: "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.0020124",
   },
+  care: {
+    id: "care",
+    label: "CARE case reports",
+    citation:
+      "Gagnier JJ, Kienle G, Altman DG, et al. The CARE guidelines: consensus-based clinical case reporting guideline development. J Med Case Rep. 2013;7:223.",
+    url: "https://www.care-statement.org/",
+  },
+  strobe: {
+    id: "strobe",
+    label: "STROBE",
+    citation:
+      "von Elm E, Altman DG, Egger M, et al. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement. Lancet. 2007;370(9596):1453-1457.",
+    url: "https://www.strobe-statement.org/",
+  },
+  consort: {
+    id: "consort",
+    label: "CONSORT",
+    citation:
+      "Schulz KF, Altman DG, Moher D. CONSORT 2010 statement: updated guidelines for reporting parallel group randomised trials. BMJ. 2010;340:c332.",
+    url: "https://www.consort-spirit.org/",
+  },
 };
 
 export function resolveRefs(ids: string[]): Ref[] {
