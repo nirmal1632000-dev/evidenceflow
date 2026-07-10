@@ -17,6 +17,7 @@ const primaryLinks = [
 const moreLinks = [
   { href: "/designs/chooser", label: "Design chooser" },
   { href: "/designs/case-report", label: "Case report track" },
+  { href: "/designs/case-report/ai", label: "AI case draft" },
   { href: "/designs/cross-sectional", label: "Cross-sectional track" },
   { href: "/designs/cohort", label: "Cohort track" },
   { href: "/designs/quasi", label: "Quasi-experimental" },

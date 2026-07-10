@@ -15,7 +15,7 @@ export default function DesignsHubPage() {
         (systematic reviews). Same principle: <strong>Watch · Do</strong>.
       </p>
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+      <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <Link
           href="/designs/chooser"
           className="rounded-2xl border border-teal-200 bg-teal-50 p-4 shadow-sm"
@@ -38,6 +38,18 @@ export default function DesignsHubPage() {
           </h2>
           <p className="mt-1 text-sm text-slate-600">
             Spot weak claims by design type when reading papers
+          </p>
+        </Link>
+        <Link
+          href="/designs/case-report/ai"
+          className="rounded-2xl border border-violet-200 bg-violet-50 p-4 shadow-sm"
+        >
+          <p className="text-xs font-bold uppercase text-violet-800">AI</p>
+          <h2 className="mt-1 font-semibold text-slate-900">
+            Case report from notes
+          </h2>
+          <p className="mt-1 text-sm text-slate-600">
+            Paste crude history → editable CARE draft + Word
           </p>
         </Link>
       </div>

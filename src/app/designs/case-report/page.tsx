@@ -56,7 +56,13 @@ function CaseReportHomeInner() {
         Watch · Do. Stored in this browser (local).
       </p>
 
-      <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+      <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+        <Link
+          href="/designs/case-report/ai"
+          className="rounded-lg bg-indigo-600 px-4 py-2.5 text-center text-sm font-semibold text-white shadow-sm"
+        >
+          AI draft from crude notes
+        </Link>
         <Link
           href="/designs/case-report/example/why"
           className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-2.5 text-center text-sm font-semibold text-amber-950"
