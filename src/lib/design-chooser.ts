@@ -103,7 +103,8 @@ export function classifyDesign(
       alternatives: ["quasi", "cohort"],
       rationale: [
         "Random allocation to intervention vs control is the hallmark of an RCT.",
-        "Plan SPIRIT (protocol) and CONSORT (reporting); full RCT track is coming soon — use appraisal flags meanwhile.",
+        "Plan SPIRIT (protocol) and CONSORT (reporting).",
+        "Open the RCT track to draft PICOT, randomisation, and sample size with Watch · Do · Teach.",
       ],
       confidence: "high",
     };

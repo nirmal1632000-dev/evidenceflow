@@ -20,6 +20,7 @@ const moreLinks = [
   { href: "/designs/cross-sectional", label: "Cross-sectional track" },
   { href: "/designs/cohort", label: "Cohort track" },
   { href: "/designs/quasi", label: "Quasi-experimental" },
+  { href: "/designs/rct", label: "RCT track" },
   { href: "/designs/appraise", label: "Appraisal flags" },
   { href: "/example/tour", label: "SR watch tour" },
   { href: "/example", label: "SR example" },

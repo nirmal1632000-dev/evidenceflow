@@ -154,7 +154,7 @@ export const DESIGN_TRACKS: DesignTrack[] = [
     title: "Randomised controlled trial",
     shortTitle: "RCT",
     family: "produce",
-    status: "soon",
+    status: "live",
     summary:
       "Participants randomised to intervention vs control — strongest design for many causal questions about interventions.",
     whenToUse:
@@ -162,6 +162,7 @@ export const DESIGN_TRACKS: DesignTrack[] = [
     whenNot: "When randomisation is unethical or outcome is extremely rare without huge N.",
     reportingGuide: "SPIRIT (protocol) · CONSORT (report)",
     reportingUrl: "https://www.consort-spirit.org/",
+    href: "/designs/rct",
     strengths: ["Balances known/unknown confounders in expectation", "Clear causal framework"],
     redFlags: [
       "Unclear randomisation/concealment",

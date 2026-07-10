@@ -48,6 +48,12 @@ export default function HomePage() {
               Quasi
             </Link>
             <Link
+              href="/designs/rct"
+              className="rounded-lg border border-rose-300 bg-rose-50 px-4 py-3 text-center text-sm font-semibold text-rose-950"
+            >
+              RCT
+            </Link>
+            <Link
               href="/workspace"
               className="rounded-lg border border-slate-200 bg-white px-4 py-3 text-center text-sm font-semibold text-slate-800"
             >
@@ -82,8 +88,8 @@ export default function HomePage() {
               Study design tracks
             </h3>
             <p className="mt-2 text-sm text-slate-600">
-              Case report, cross-sectional, cohort, and quasi live. RCT on the
-              roadmap. Design chooser + appraisal red flags for all.
+              Full produce suite live (case → RCT) plus SR/MA synthesis. Design
+              chooser + appraisal red flags for all.
             </p>
             <span className="mt-3 inline-block text-sm font-semibold text-teal-800">
               Open designs →

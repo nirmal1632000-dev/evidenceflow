@@ -122,16 +122,10 @@ export default function DesignsHubPage() {
       </section>
 
       <section className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
-        <strong className="text-slate-900">Live now:</strong> Case report/series,
-        cross-sectional, cohort, quasi-experimental, and SR/MA.{" "}
-        <strong className="text-slate-900">Roadmap:</strong> RCT full workspace
-        next — same Watch · Do · Teach pattern. Appraisal flags for all designs
-        are already live.
-        <ul className="mt-2 list-disc pl-5 text-xs">
-          {DESIGN_TRACKS.filter((d) => d.status === "soon").map((d) => (
-            <li key={d.id}>{d.title}</li>
-          ))}
-        </ul>
+        <strong className="text-slate-900">All planned produce tracks are live:</strong>{" "}
+        case report/series, cross-sectional, cohort, quasi-experimental, RCT — plus
+        SR/MA for synthesis. Appraisal flags and design chooser cover every type.
+        Future work: deeper examples, cloud sync per track, and classroom packs.
       </section>
     </div>
   );
